@@ -15,8 +15,12 @@
 
     <div id="start-screen">
         <h1 class="start-title">QUIZ: MISSÕES APOLLO</h1>
-        <p class="start-text">Pressione Iniciar para começar a sua jornada espacial.</p>
-        <button id="startButton" class="btn-restart">INICIAR</button>
+        <p class="start-text">Escolha seu nível para começar a sua jornada espacial.</p>
+        
+        <div class="level-selection-buttons">
+            <button id="easyStartButton" class="btn-restart btn-easy">FÁCIL</button>
+            <button id="hardStartButton" class="btn-restart btn-hard">DIFÍCIL</button>
+        </div>
     </div>
 
     <div class="quiz-container container d-none" id="quizContainer">
@@ -37,10 +41,7 @@
             </div>
 
             <div id="result" class="d-none">
-                <h3 id="finalMessage"></h3>
-                <p id="resultText"></p>
-                <button class="btn-restart" id="restartButton">JOGAR NOVAMENTE</button>
-            </div>
+                </div>
         </div>
         <a id="emblem-link" href="https://www.youtube.com/@sistematico" target="_blank">
             <img id="corner-emblem" src="images/emblema.png" alt="Emblema Apollo"> 
