@@ -1,6 +1,3 @@
-// =========================================================
-// 🚀 PERGUNTAS ORGANIZADAS POR NÍVEL
-// =========================================================
 const allQuestions = {
     easy: [
         { question: "Em que ano o homem pisou na Lua pela primeira vez?", answers: ["1969", "1971", "1968", "1972"], correct: "1969" },
@@ -48,9 +45,6 @@ const allQuestions = {
     ]
 };
 
-// =========================================================
-// VARIÁVEIS DE ESTADO E CONSTANTES
-// =========================================================
 let shuffledQuestions, currentQuestionIndex, selectedAnswer, score;
 let fireworksLoopId; 
 let fireworkInterval;
@@ -58,15 +52,10 @@ let fireworkInterval;
 let currentLevel = null; 
 const QUESTIONS_PER_GAME = 10; 
 
-// =========================================================
-// REFERÊNCIAS AO DOM
-// =========================================================
-// Audio
 const bgMusic = document.getElementById("bgMusic");
 const sfxCorrect = document.getElementById("sfxCorrect");
 const sfxIncorrect = document.getElementById("sfxIncorrect");
 
-// Quiz Elements
 const questionText = document.getElementById("questionText");
 const answerButtons = document.getElementById("answerButtons");
 const confirmButton = document.getElementById("confirmButton");
@@ -82,21 +71,13 @@ const mainTitle = document.getElementById("mainTitle");
 const startScreen = document.getElementById("start-screen");
 const quizContainer = document.getElementById("quizContainer");
 
-// REFERÊNCIAS AOS BOTÕES DE INÍCIO
 const easyStartButton = document.getElementById("easyStartButton");
 const hardStartButton = document.getElementById("hardStartButton");
 
-// =========================================================
-// CONFIGURAÇÕES INICIAIS
-// =========================================================
 bgMusic.volume = 0.2; 
 sfxCorrect.volume = 0.6; 
 sfxIncorrect.volume = 0.6; 
 const backgroundTrack = "audio/trilha2.mp3"; 
-
-// =========================================================
-// FUNÇÕES AUXILIARES
-// =========================================================
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -144,47 +125,36 @@ function playBackgroundMusic() {
     bgMusic.play().catch(e => console.log("Música não iniciada automaticamente.", e));
 }
 
-// =========================================================
-// LÓGICA DE INÍCIO E NÍVEIS
-// =========================================================
 function initializeListeners() {
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
 
-    // Event listeners para os novos botões de início
     if (easyStartButton) easyStartButton.addEventListener("click", () => startLevel('easy'));
     if (hardStartButton) hardStartButton.addEventListener("click", () => startLevel('hard'));
     
-    // Listener para o botão de confirmação
     if (confirmButton) confirmButton.addEventListener("click", handleConfirmClick);
     
-    // Animação inicial
     animateTitleLetters('animatedTitle', "QUIZ: MISSÕES APOLLO");
 }
 
 function startLevel(level) {
-    currentLevel = level; // Define o nível escolhido ('easy' ou 'hard')
+    currentLevel = level;
     
-    // 1. Troca a tela
     if (startScreen) startScreen.classList.add('d-none');
     if (quizContainer) quizContainer.classList.remove('d-none');
     
-    // 2. Inicia a música
     playBackgroundMusic();
     
-    // 3. Inicia o quiz com a lógica de sorteio
     startQuiz();
 }
 
 function startQuiz() {
-    // Garante que a música está tocando (em caso de reinício)
     if (bgMusic.paused) {
         playBackgroundMusic();
     }
 
     animateTitleLetters('animatedTitle', "QUIZ: MISSÕES APOLLO");
 
-    // Limpa efeitos de resultado anterior
     if (finalMessage) {
         finalMessage.textContent = ""; 
         finalMessage.classList.remove("neon-glow-purple"); 
@@ -195,18 +165,14 @@ function startQuiz() {
     particles = []; 
     if (ctx) ctx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
 
-    // Lógica Central: Seleção, Embaralhamento e Limitação
-    // 1. Pega todas as perguntas do nível atual
     const availableQuestions = allQuestions[currentLevel];
     if (!availableQuestions || availableQuestions.length === 0) {
         console.error("Não há perguntas disponíveis para este nível.");
         return; 
     }
     
-    // 2. Embaralha todas as perguntas disponíveis no nível
     const tempShuffled = availableQuestions.sort(() => Math.random() - 0.5); 
     
-    // 3. Pega APENAS as primeiras 10 perguntas para a partida
     shuffledQuestions = tempShuffled.slice(0, QUESTIONS_PER_GAME); 
     
     currentQuestionIndex = 0;
@@ -222,7 +188,6 @@ function startQuiz() {
 
 function nextQuestion() {
     resetState();
-    // Verifica se ainda há perguntas no array Sorteado (shuffledQuestions)
     if (currentQuestionIndex < shuffledQuestions.length) {
         showQuestion(shuffledQuestions[currentQuestionIndex]);
         updateProgress();
@@ -289,13 +254,13 @@ function handleConfirmClick() {
     if (confirmButton) confirmButton.disabled = true;    
 
     setTimeout(() => {
-        const progressAfterAnswer = ((currentQuestionIndex + 1) / QUESTIONS_PER_GAME) * 100; // Usa QUESTIONS_PER_GAME
+        const progressAfterAnswer = ((currentQuestionIndex + 1) / QUESTIONS_PER_GAME) * 100;
         if (progressBar) progressBar.style.width = `${progressAfterAnswer}%`;
     }, 100); 
 
     setTimeout(() => {
         currentQuestionIndex++;
-        if (currentQuestionIndex < QUESTIONS_PER_GAME) { // Usa QUESTIONS_PER_GAME
+        if (currentQuestionIndex < QUESTIONS_PER_GAME) {
             nextQuestion();
         } else {
             showResult();
@@ -304,31 +269,25 @@ function handleConfirmClick() {
 }
 
 function updateProgress() {
-    // Ajusta o progresso para o total de perguntas da partida (10)
     const progress = (currentQuestionIndex / QUESTIONS_PER_GAME) * 100; 
     if (progressBar) progressBar.style.width = `${progress}%`;
 }
 
-// LÓGICA DA TELA DE RESULTADO (COM AS NOVAS CORES E TEXTOS)
 function showResult() {
     if (quiz) quiz.classList.add("d-none");
     if (result) result.classList.remove("d-none");
     
-    // 1. Limpa a div de resultado ANTES de adicionar os novos elementos
     if (result) result.innerHTML = ''; 
 
-    // 2. Cria o TÍTULO final
     const finalMessageElement = document.createElement('h3');
     finalMessageElement.id = 'finalMessage';
     finalMessageElement.textContent = "FIM DE JOGO";
     finalMessageElement.classList.add("neon-glow-purple"); 
     
-    // 3. Cria o PLACAR de texto
     const resultTextElement = document.createElement('p');
     resultTextElement.id = 'resultText';
     resultTextElement.innerHTML = `Você acertou <strong>${score}</strong> de ${QUESTIONS_PER_GAME} perguntas! 🚀`;
 
-    // 4. ANEXA o TÍTULO e o PLACAR
     if (result) {
         result.appendChild(finalMessageElement);
         result.appendChild(resultTextElement);
@@ -336,21 +295,16 @@ function showResult() {
     
     launchFireworks(); 
 
-    // Botão 1: Jogar Novamente (Mesmo Nível)
     const restartSameLevelButton = document.createElement("button");
-    // === MUDANÇA AQUI: Remove a indicação do nível do texto do botão
     restartSameLevelButton.textContent = `JOGAR NOVAMENTE`; 
     restartSameLevelButton.classList.add("btn-restart");
-    // Mantém a cor original do nível
     restartSameLevelButton.classList.add(currentLevel === 'easy' ? 'btn-easy' : 'btn-hard'); 
     restartSameLevelButton.addEventListener("click", () => startLevel(currentLevel));
     if (result) result.appendChild(restartSameLevelButton);
 
-    // Botão 2: Mudar de Nível
     const changeLevelButton = document.createElement("button");
     changeLevelButton.textContent = "MUDAR DE NÍVEL";
     changeLevelButton.classList.add("btn-restart");
-    // === MUDANÇA AQUI: Cor Laranja
     changeLevelButton.style.backgroundColor = '#ff8c00'; // Laranja
     changeLevelButton.style.boxShadow = '0 5px 15px rgba(255, 140, 0, 0.4)';
     changeLevelButton.style.animation = 'none'; 
@@ -358,23 +312,17 @@ function showResult() {
     if (result) result.appendChild(changeLevelButton);
 }
 
-// NOVA FUNÇÃO: Voltar para a tela inicial
 function showStartScreen() {
     if (quizContainer) quizContainer.classList.add('d-none');
     if (startScreen) startScreen.classList.remove('d-none');
     if (bgMusic) bgMusic.pause(); 
     
-    // Limpa os fogos
     clearInterval(fireworkInterval);
     cancelAnimationFrame(fireworksLoopId);
     particles = []; 
     if (ctx) ctx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
 }
 
-
-// =========================================================
-// FOGOS DE ARTIFÍCIO
-// =========================================================
 let particles = [];
 function launchFireworks() {
     if (!fireworksCanvas || !ctx) return; 
@@ -421,5 +369,4 @@ function animateFireworks() {
     }
 }
 
-// Inicializa a lógica principal ao carregar o DOM
 document.addEventListener('DOMContentLoaded', initializeListeners);
