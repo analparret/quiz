@@ -19,6 +19,176 @@ const allQuestions = {
         { question: "Durante a Apollo 17, a tripulação capturou uma imagem famosa da Terra nascendo sobre a Lua. Como ela ficou conhecida?", answers: ["Earthrise", "Blue Marble", "Moonrise", "Terra Nova"], correct: "Earthrise" },
         { question: "Quem foi o último humano a pisar na Lua?", answers: ["Harrison Schmitt", "Gene Cernan", "Buzz Aldrin", "Neil Armstrong"], correct: "Gene Cernan" },
         { question: "Quem foi uma das matemáticas responsáveis pelos cálculos de trajetória da Apollo 11, garantindo o pouso seguro na Lua?", answers: ["Katherine Johnson", "Sally Ride", "Margaret Hamilton", "Valentina Tereshkova"], correct: "Katherine Johnson" },
+        {
+          question: "Em que ano o Programa Apollo foi oficialmente anunciado pela NASA?",
+          answers: ["1959", "1961", "1963", "1965"],
+          correct: "1961"
+        },
+        {
+          question: "Qual presidente dos EUA anunciou a meta de levar o homem à Lua antes do fim da década de 1960?",
+          answers: ["Richard Nixon", "Dwight Eisenhower", "John F. Kennedy", "Lyndon Johnson"],
+          correct: "John F. Kennedy"
+        },
+        {
+          question: "Qual era o nome do foguete usado nas missões Apollo tripuladas para a Lua?",
+          answers: ["Atlas", "Titan II", "Saturn V", "Delta"],
+          correct: "Saturn V"
+        },
+        {
+          question: "O módulo que ficava em órbita da Lua enquanto o outro pousava era o:",
+          answers: ["Lunar Module", "Command Module", "Booster Stage", "Return Capsule"],
+          correct: "Command Module"
+        },
+        {
+          question: "Quem foi o primeiro diretor do Programa Apollo na NASA?",
+          answers: ["Wernher von Braun", "Sam Phillips", "Gene Kranz", "Deke Slayton"],
+          correct: "Sam Phillips"
+        },
+        {
+          question: "Onde ficava o principal centro de lançamento do Programa Apollo?",
+          answers: ["Houston", "Cabo Canaveral", "Huntsville", "Edwards"],
+          correct: "Cabo Canaveral"
+        },
+        {
+          question: "A Apollo 7 foi a primeira missão americana a transmitir:",
+          answers: ["Imagens coloridas da Lua", "Vídeo ao vivo do espaço", "Voz via satélite", "Telemetria em 4K"],
+          correct: "Vídeo ao vivo do espaço"
+        },
+        {
+          question: "Após o sucesso da Apollo 10, a NASA aprovou:",
+          answers: ["missão de acoplamento extra", "primeiro pouso lunar", "revoo de teste", "cancelamento parcial"],
+          correct: "primeiro pouso lunar"
+        },
+        {
+          question: "O módulo de comando da Apollo 11 chamava-se:",
+          answers: ["Columbia", "Odyssey", "Yankee Clipper", "Casper"],
+          correct: "Columbia"
+        },
+        {
+          question: "Qual país transmitiu a imagem do primeiro passo lunar ao vivo para o mundo?",
+          answers: ["EUA", "Austrália", "Reino Unido", "França"],
+          correct: "Austrália"
+        },
+        {
+          question: "A Apollo 15 foi a primeira missão a usar o:",
+          answers: ["módulo lunar ampliado", "traje pressurizado", "rover lunar", "radar de penetração"],
+          correct: "rover lunar"
+        },
+        {
+          question: "O módulo lunar da Apollo 15 chamava-se:",
+          answers: ["Falcon", "Orion", "Challenger", "Antares"],
+          correct: "Falcon"
+        },
+        {
+          question: "O módulo lunar da Apollo 17 chamava-se:",
+          answers: ["Challenger", "America", "Orion", "Falcon"],
+          correct: "Challenger"
+        },
+        {
+          question: "O Módulo Lunar pesava cerca de:",
+          answers: ["5 toneladas", "10 toneladas", "1 tonelada", "20 toneladas"],
+          correct: "10 toneladas"
+        },
+        {
+          question: "Quantos segundos de combustível restavam no tanque da Apollo 11 no momento do pouso?",
+          answers: ["30 s", "20 s", "40 s", "10 s"],
+          correct: "20 s"
+        },
+        {
+          question: "O solo lunar (regolito) contém grande quantidade de:",
+          answers: ["ferro e titânio", "enxofre e zinco", "cromo e cobre", "silício e nitrogênio"],
+          correct: "ferro e titânio"
+        },
+        {
+          question: "A velocidade máxima registrada de um rover lunar foi de:",
+          answers: ["9 km/h", "11 km/h", "13 km/h", "15 km/h"],
+          correct: "11 km/h"
+        },
+        {
+          question: "A Apollo 17 foi a única missão lançada:",
+          answers: ["ao pôr do sol", "à noite", "ao meio-dia", "no inverno lunar"],
+          correct: "à noite"
+        },
+        {
+          question: "Qual é a teoria mais famosa sobre a filmagem da ida à Lua?",
+          answers: ["Foi filmada em Marte", "Feita em estúdio de Hollywood", "Foi uma animação soviética", "Foi feita por Spielberg"],
+          correct: "Feita em estúdio de Hollywood"
+        },
+        {
+          question: "A tragédia da Apollo 1 aconteceu durante:",
+          answers: ["o lançamento", "um teste em solo", "o retorno", "o pouso"],
+          correct: "um teste em solo"
+        },
+        {
+          question: "Qual foi o problema que causou o incêndio da Apollo 1?",
+          answers: ["Válvula de combustível", "Curto elétrico", "Motor principal", "Bateria superaquecida"],
+          correct: "Curto elétrico"
+        },
+        {
+          question: "A frase “We’ll see you on the other side” foi dita quando a Apollo 8:",
+          answers: ["entrou em órbita lunar", "pousou na Lua", "retornou à Terra", "perdeu comunicação com Houston"],
+          correct: "entrou em órbita lunar"
+        },
+        {
+          question: "A frase “Houston, Tranquility Base here. The Eagle has landed” foi dita por:",
+          answers: ["Buzz Aldrin", "Neil Armstrong", "Michael Collins", "Gene Kranz"],
+          correct: "Neil Armstrong"
+        },
+        {
+          question: "O principal objetivo da Apollo 12 era:",
+          answers: ["Alunissagem precisa", "Coletar gelo lunar", "Buscar vida", "Testar novo traje"],
+          correct: "Alunissagem precisa"
+        },
+        {
+          question: "A Apollo 12 quase falhou por causa de:",
+          answers: ["pane elétrica após raio", "falta de combustível", "motor travado", "perda de comunicação"],
+          correct: "pane elétrica após raio"
+        },
+        {
+          question: "A Apollo 13 ficou famosa por:",
+          answers: ["pousar na Lua", "não conseguir pousar", "encontrar gelo", "quebrar recorde de duração"],
+          correct: "não conseguir pousar"
+        },
+        {
+          question: "Alan Shepard ficou famoso na Apollo 14 por:",
+          answers: ["jogar golfe na Lua", "correr maratona lunar", "plantar uma bandeira gigante", "cair em uma cratera"],
+          correct: "jogar golfe na Lua"
+        },
+        {
+          question: "Qual missão trouxe a maior quantidade de rochas lunares?",
+          answers: ["Apollo 11", "Apollo 15", "Apollo 11", "Apollo 14"],
+          correct: "Apollo 15"
+        },
+        {
+          question: "O nome “Apollo” foi escolhido por:",
+          answers: ["John F. Kennedy", "Um engenheiro da NASA", "Neil Armstrong", "O Congresso"],
+          correct: "Um engenheiro da NASA"
+        },
+        {
+          question: "O segundo homem a pisar na Lua foi:",
+          answers: ["Michael Collins", "Buzz Aldrin", "Gene Cernan", "Alan Bean"],
+          correct: "Buzz Aldrin"
+        },
+        {
+          question: "Qual era o tempo médio de viagem até a Lua?",
+          answers: ["1 dia", "3 dias", "5 dias", "7"],
+          correct: "3 dias"
+        },
+        {
+          question: "Os astronautas deixaram na Lua:",
+          answers: ["lixo, bandeiras e equipamentos", "apenas a bandeira", "nada", "um carro"],
+          correct: "lixo, bandeiras e equipamentos"
+        },
+        {
+          question: "Quantas bandeiras dos EUA foram deixadas na Lua?",
+          answers: ["3", "6", "10", "12"],
+          correct: "6"
+        },
+        {
+          question: "O traje espacial era feito principalmente de:",
+          answers: ["alumínio", "nylon e teflon", "ferro", "chumbo"],
+          correct: "nylon e teflon"
+        },
         { question: "Quantos dias durou a missão Apollo 11 do lançamento ao retorno?", answers: ["4 dias", "8 dias", "10 dias", "14 dias"], correct: "8 dias" }
     ],
     hard: [
@@ -41,6 +211,181 @@ const allQuestions = {
         { question: "A Apollo 17 foi lançada em dezembro de 1972. Quem era o comandante da missão?", answers: ["Neil Armstrong", "Gene Cernan", "Harrison Schmitt", "Eugene Aldrin"], correct: "Gene Cernan" },
         { question: "A Apollo 17 marcou a primeira missão com um cientista profissional na tripulação. Quem era ele?", answers: ["Harrison Schmitt", "Michael Collins", "Buzz Aldrin", "Jim Lovell"], correct: "Harrison Schmitt" },
         { question: "Quem liderou a equipe que desenvolveu o software de bordo do Apollo Guidance Computer?", answers: ["Mary Jackson", "Margaret Hamilton", "Annie Easley", "Carolyn Porco"], correct: "Margaret Hamilton" },
+        {
+          question: "Antes do Apollo, qual programa testou as cápsulas tripuladas em órbita?",
+          answers: ["Gemini", "Mercury", "Skylab", "Pioneer"],
+          correct: "Gemini"
+        },
+        {
+          question: "Quantos astronautas eram normalmente treinados por missão Apollo?",
+          answers: ["3", "6", "8", "9"],
+          correct: "3"
+        },
+        {
+          question: "Qual teste importante simulou uma missão lunar completa sem tripulação?",
+          answers: ["Apollo 1", "Apollo 4", "Apollo 5", "Apollo 6"],
+          correct: "Apollo 4"
+        },
+        {
+          question: "Quais astronautas morreram no incêndio da Apollo 1?",
+          answers: ["White, Chaffee, Grissom", "Armstrong, Aldrin, Collins", "Shepard, Cooper, Slayton", "Young, Mattingly, Swigert"],
+          correct: "White, Chaffee, Grissom"
+        },
+        {
+          question: "O incêndio da Apollo 1 ocorreu durante:",
+          answers: ["lançamento", "teste de pressurização", "reentrada", "acoplamento"],
+          correct: "teste de pressurização"
+        },
+        {
+          question: "A missão Apollo 5 testou pela primeira vez o:",
+          answers: ["Módulo de Comando", "Módulo Lunar", "Saturn V", "traje espacial"],
+          correct: "Módulo Lunar"
+        },
+        {
+          question: "Quem foi o comandante da Apollo 7?",
+          answers: ["Neil Armstrong", "Wally Schirra", "Frank Borman", "Jim Lovell"],
+          correct: "Wally Schirra"
+        },
+        {
+          question: "A Apollo 7 foi lançada com qual foguete?",
+          answers: ["Saturn V", "Saturn IB", "Saturn I", "Titan II"],
+          correct: "Saturn IB"
+        },
+        {
+          question: "Em que órbita específica a Apollo 7 permaneceu?",
+          answers: ["180 km circular", "230 km elíptica", "160 km circular", "310 km elíptica"],
+          correct: "230 km elíptica"
+        },
+        {
+          question: "O sistema de suporte de vida do Módulo de Comando foi testado durante a Apollo 7 por quantos dias?",
+          answers: ["5", "8", "10", "12"],
+          correct: "10"
+        },
+        {
+          question: "Qual falha menor ocorreu nos motores do módulo de serviço da Apollo 7?",
+          answers: ["vibração excessiva", "superaquecimento", "perda de pressão", "falha elétrica"],
+          correct: "vibração excessiva"
+        },
+        {
+          question: "O principal objetivo da Apollo 7 foi:",
+          answers: ["testar o módulo lunar", "testar o módulo de comando em órbita", "fotografar a Lua", "simular pouso"],
+          correct: "testar o módulo de comando em órbita"
+        },
+        {
+          question: "Quem foi o comandante da Apollo 8?",
+          answers: ["Frank Borman", "Jim Lovell", "Neil Armstrong", "Tom Stafford"],
+          correct: "Frank Borman"
+        },
+        {
+          question: "A famosa leitura do Gênesis transmitida do espaço foi feita durante:",
+          answers: ["Apollo 7", "Apollo 8", "Apollo 9", "Apollo 10"],
+          correct: "Apollo 8"
+        },
+        {
+          question: "A icônica foto “Earthrise” foi tirada por:",
+          answers: ["Borman", "Lovell", "Anders", "Stafford"],
+          correct: "Anders"
+        },
+        {
+          question: "O módulo lunar da Apollo 9 foi chamado de:",
+          answers: ["Eagle", "Spider", "Snoopy", "Falcon"],
+          correct: "Spider"
+        },
+        {
+          question: "Qual altitude mínima o módulo lunar Snoopy da Apollo 10 atingiu sobre a Lua antes de retornar?",
+          answers: ["15 km", "25 km", "35", "50"],
+          correct: "15 km"
+        },
+        {
+          question: "O principal objetivo da Apollo 10 foi:",
+          answers: ["pousar na Lua", "testar acoplamento lunar", "testar reentrada", "realizar EVA"],
+          correct: "testar acoplamento lunar"
+        },
+        {
+          question: "Onde a Apollo 11 pousou na Lua?",
+          answers: ["Mare Serenitatis", "Mare Tranquillitatis", "Oceanus Procellarum", "Mare Imbrium"],
+          correct: "Mare Tranquillitatis"
+        },
+        {
+          question: "Quanto tempo a Apollo 11 ficou pousada na superfície lunar?",
+          answers: ["12h", "21h", "24h", "48h"],
+          correct: "21h"
+        },
+        {
+          question: "A Apollo 12 pousou em qual região lunar?",
+          answers: ["Oceanus Procellarum", "Mare Imbrium", "Mare Tranquillitatis", "Montes Apenninus"],
+          correct: "Oceanus Procellarum"
+        },
+        {
+          question: "A Apollo 12 foi a primeira missão a:",
+          answers: ["filmar em cores na Lua", "usar radar de pouso", "realizar EVA de 10h", "fazer três pousos simulados"],
+          correct: "filmar em cores na Lua"
+        },
+        {
+          question: "A Apollo 13 teve seu voo abortado devido a:",
+          answers: ["falha no motor", "explosão de tanque de oxigênio", "problema de comunicação", "erro de navegação"],
+          correct: "explosão de tanque de oxigênio"
+        },
+        {
+          question: "A Apollo 14 marcou o retorno bem-sucedido à Lua com qual comandante?",
+          answers: ["Alan Shepard", "Edgar Mitchell", "Stuart Roosa", "John Young"],
+          correct: "Alan Shepard"
+        },
+        {
+          question: "O módulo lunar da Apollo 14 chamava-se:",
+          answers: ["Falcon", "Orion", "Antares", "Challenger"],
+          correct: "Falcon"
+        },
+        {
+          question: "O principal objetivo da Apollo 14 foi:",
+          answers: ["teste de reentrada", "coleta geológica extensa", "observação solar", "radar de penetração lunar"],
+          correct: "coleta geológica extensa"
+        },
+        {
+          question: "Qual experimento foi deixado na Lua pela Apollo 15?",
+          answers: ["LRRR", "ALSEP", "LEM-4", "SEQ Bay"],
+          correct: "ALSEP"
+        },
+        {
+          question: "A Apollo 15 trouxe de volta a famosa “pedra gênese”, uma amostra de:",
+          answers: ["basalto", "anortosito", "olivina", "gabrro"],
+          correct: "anortosito"
+        },
+        {
+          question: "A potência total do Saturn V ao decolar era equivalente a quantos aviões a jato comerciais juntos?",
+          answers: ["500", "1.000", "10.000", "20.000"],
+          correct: "10.000"
+        },
+        {
+          question: "Qual era o tipo de combustível usado no segundo e terceiro estágios do Saturn V?",
+          answers: ["RP-1 e LOX", "LH₂ e LOX", "Hidrazina e N₂O₄", "Metano e oxigênio"],
+          correct: "LH₂ e LOX"
+        },
+        {
+          question: "O sistema de computador do módulo de comando usava qual tipo de memória?",
+          answers: ["RAM magnética", "Memória de núcleo de ferrite", "Memória óptica", "Cartões perfurados"],
+          correct: "Memória de núcleo de ferrite"
+        },
+        {
+          question: "Quantas instruções o computador Apollo Guidance Computer (AGC) podia executar por segundo?",
+          answers: ["500", "2.000", "85.000", "120.000"],
+          correct: "85.000"
+        },
+        {
+          question: "O tempo médio de atraso na comunicação entre a Lua e a Terra era de:",
+          answers: ["1,2 s", "2,5 s", "3,8 s", "0,9 s"],
+          correct: "1,2 s"
+        },
+        {
+          question: "Em que ano a NASA desligou o último transmissor ALSEP na Lua",
+          answers: ["1974", "1976", "1979", "1982"],
+          correct: "1976"
+        },
+        {
+          question: "O sistema ALSEP permanecia ativo após a partida dos astronautas por:",
+          answers: ["alguns dias", "meses", "anos", "apenas durante a missão"],
+          correct: "anos"
+        },
         { question: "Além de Katherine Johnson e Margaret Hamilton, quem recebeu reconhecimento por apoiar cálculos e simulações das Apollo?", answers: ["Mary Jackson", "Sally Ride", "Valentina Tereshkova", "Ellen Ochoa"], correct: "Mary Jackson" }
     ]
 };
