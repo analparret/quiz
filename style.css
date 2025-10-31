@@ -8,6 +8,7 @@ button:focus:not(:focus-visible),
 }
 
 body {
+    /* Mantém o fundo escuro do body e o gradiente */
     background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);
     color: #e0e0e0; 
     height: 100vh;
@@ -19,26 +20,15 @@ body {
     margin: 0;
 }
 
-/* Efeito de estrelas no fundo. OBS: Alterar cores */
+/* Opcional: Desativa as estrelas se o novo fundo for suficiente */
 .stars {
+    /* Mantido como estava no último CSS para garantir que se o elemento existir, ele seja exibido */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 150px 100px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 60px 200px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 200px 150px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 250px 50px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 300px 250px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 400px 120px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 450px 220px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 500px 80px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 550px 180px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 600px 280px, #eee, rgba(0,0,0,0));
     background-repeat: repeat;
     background-size: 700px 700px;
     animation: move-background 100s linear infinite;
@@ -57,15 +47,42 @@ body {
     display: none !important;
 }
 
+/* === NOVO: Base para o Overlay e z-index dos elementos === */
+#start-screen, .quiz-container {
+    position: relative; /* Necessário para posicionar o ::before */
+    overflow: hidden; /* Garante que a imagem e o overlay não saiam dos limites */
+    z-index: 2; /* Garante que o contêiner esteja acima das estrelas (z-index: 0) */
+}
+
+/* === NOVO: Overlay de Escurecimento (Camada semi-transparente preta) === */
+#start-screen::before, .quiz-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Escurece 40% (ajuste este valor para mais ou menos escuro) */
+    z-index: 3; /* Abaixo do conteúdo (z-index: 4 ou 5) e acima do background-image */
+    pointer-events: none; /* Não interfere no clique dos botões */
+    border-radius: 20px; /* Igual ao container para combinar */
+}
+
+/* TELA INICIAL: #start-screen */
 #start-screen {
     width: 90%; 
     max-width: 550px; 
-    background: rgba(255, 255, 255, 0.15); 
+    
+    background-image: url('images/fundo1.jpg'); 
+    background-size: 150% 150%; 
+    background-repeat: no-repeat;
+    background-position: top left; 
+    animation: slow-pan 60s linear infinite alternate; 
+    
     padding: 30px; 
     border-radius: 25px; 
     box-shadow: 0 0 40px rgba(0,0,0,0.8); 
-    position: relative; 
-    z-index: 2;
+    /* position e z-index já definidos acima */
     border: 5px solid rgba(255, 255, 255, 0.2); 
     height: 300px; 
     display: flex; 
@@ -75,29 +92,82 @@ body {
     text-align: center;
 }
 
+
+/* --- Estilo dos Botões de Nível (Início) --- */
+.level-selection-buttons {
+    display: flex;
+    gap: 15px; 
+    justify-content: center;
+    width: 100%;
+}
+
+.level-selection-buttons .btn-restart {
+    width: 45%; 
+    margin-top: 10px;
+    z-index: 4; /* Garante que os botões fiquem acima do overlay */
+}
+
+.btn-easy {
+    background-color: #28a745; 
+    animation: pulse 2s infinite; /* ANIMAÇÃO VERDE */
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4); 
+}
+
+.btn-easy:hover {
+    background-color: #1e7e34;
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+    transform: translateY(-2px);
+    animation: none; 
+}
+
+.btn-hard {
+    background-color: #007bff; 
+    animation: pulse-hard 2s infinite; /* ANIMAÇÃO AZUL */
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+.btn-hard:hover {
+    background-color: #0056b3;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+    transform: translateY(-2px);
+    animation: none;
+}
+
+
 .start-title {
     font-family: 'Bungee', cursive; 
     font-size: clamp(2rem, 6vw, 3rem); 
     color: #fff; 
     text-shadow: 0 0 10px #00bfff; 
     margin-bottom: 20px;
+    z-index: 4; /* Garante que o texto fique acima do overlay */
 }
 
 .start-text {
     font-family: 'Electrolize', sans-serif; 
     font-size: clamp(0.9rem, 2vw, 1.1rem); 
     margin-bottom: 30px;
+    z-index: 4; /* Garante que o texto fique acima do overlay */
 }
 
+/* QUIZ CONTAINER: .quiz-container */
 .quiz-container {
     width: 90%; 
     max-width: 550px; 
+    
+    /* Fundo semi-transparente de fallback */
     background: rgba(255, 255, 255, 0.08); 
+
+    background-image: url('images/fundo1.jpg'); 
+    background-size: 150% 150%; 
+    background-repeat: no-repeat;
+    background-position: top left; 
+    animation: slow-pan 60s linear infinite alternate; 
+    
     padding: 15px; 
     border-radius: 25px; 
     box-shadow: 0 0 30px rgba(0,0,0,0.6); 
-    position: relative; 
-    z-index: 2;
+    /* position e z-index já definidos acima */
     border: 5px solid rgba(255, 255, 255, 0.1); 
     height: 90vh; 
     max-height: 580px; 
@@ -108,20 +178,31 @@ body {
     justify-content: space-between; 
 }
 
+/* === KEYFRAMES CORRIGIDO (OPÇÃO 1): Limita o movimento à área mais escura === */
+@keyframes slow-pan {
+    0% {
+        background-position: 0% 0%; /* Começa no canto superior esquerdo */
+    }
+    100% {
+        background-position: 40% 40%; /* Move no máximo 40% para a direita/baixo */
+    }
+}
+
+
 #emblem-link {
     position: absolute;
     bottom: 10px; 
     right: 10px; 
-    width: 50px;   
+    width: 50px;    
     height: 50px;
-    z-index: 10;
+    z-index: 10; /* Garante que o emblema esteja sempre no topo */
     display: block;
 }
 
 #corner-emblem {
     width: 100%;
     height: 100%;
-    opacity: 0.7;  
+    opacity: 0.7;   
     transition: all 0.3s ease-in-out;
 }
 
@@ -141,6 +222,8 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-bottom: 30px; 
+    z-index: 4; /* Garante que o conteúdo do resultado fique acima do overlay */
 }
 
 #quiz-content {
@@ -149,7 +232,7 @@ body {
     flex-direction: column;
     padding-top: 15px;
     position: relative; 
-    z-index: 5; 
+    z-index: 5; /* Conteúdo do quiz: Pergunta e Respostas (acima do overlay e outros elementos) */
 }
 
 #quiz, #result {
@@ -172,6 +255,7 @@ body {
     border-radius: 15px; 
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.15); 
+    z-index: 4; /* Acima do overlay */
 }
 
 .progress-bar {
@@ -191,8 +275,10 @@ h1 {
     display: flex; 
     justify-content: center;
     align-items: center;
+    z-index: 4; /* Acima do overlay */
 }
 
+/* Cores da Animação do Título */
 .color-blue {
     color: #00bfff;
     text-shadow: 0 0 5px #00bfff;
@@ -224,6 +310,7 @@ h3 {
     font-size: clamp(1.2rem, 3.5vw, 1.8rem); 
     color: #fff; 
     text-shadow: 0 0 5px rgba(0, 123, 255, 0.3); 
+    z-index: 4; /* Acima do overlay */
 }
 
 h4 { /* Pergunta */
@@ -233,6 +320,7 @@ h4 { /* Pergunta */
     text-shadow: 0 0 5px rgba(0, 123, 255, 0.3); 
     margin-top: 0 !important;
     margin-bottom: 10px !important; 
+    z-index: 4; /* Acima do overlay */
 }
 
 /* Placar de Resultado */
@@ -242,6 +330,7 @@ h4 { /* Pergunta */
     color: #fff; 
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
     margin-bottom: 30px; 
+    z-index: 4; /* Acima do overlay */
 }
 
 .btn-answer {
@@ -259,6 +348,7 @@ h4 { /* Pergunta */
     font-size: clamp(0.85rem, 2vw, 1rem); 
     margin-bottom: 8px; 
     white-space: normal; 
+    z-index: 4; /* Acima do overlay */
 }
 
 .btn-answer:hover:not(:disabled) {
@@ -317,6 +407,7 @@ h4 { /* Pergunta */
     width: clamp(150px, 50%, 250px); 
     align-self: center; 
     margin-top: 15px; 
+    z-index: 4; /* Acima do overlay */
 }
 
 .btn-confirm:hover:not(:disabled) {
@@ -333,6 +424,9 @@ h4 { /* Pergunta */
     transform: none;
 }
 
+/* === KEYFRAMES DOS BOTÕES PULSANTES === */
+
+/* Animação Pulse (Verde) */
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
@@ -345,9 +439,24 @@ h4 { /* Pergunta */
     }
 }
 
+/* Animação Pulse-Hard (Azul) - NOVO */
+@keyframes pulse-hard {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 123, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+/* ======================================= */
+
+
 .btn-restart {
     font-family: 'Orbitron', sans-serif;
-    background-color: #28a745; 
     color: white;
     border: none; 
     border-radius: 20px; 
@@ -356,16 +465,12 @@ h4 { /* Pergunta */
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    animation: pulse 2s infinite; 
-    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4); 
     margin-top: 20px; 
+    z-index: 4; /* Acima do overlay */
 }
 
 .btn-restart:hover {
-    background-color: #1e7e34;
-    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
-    transform: translateY(-2px);
-    animation: none; 
+    animation: none !important; 
 }
 
 /* Fogos */
@@ -395,6 +500,7 @@ h4 { /* Pergunta */
     to { visibility: hidden; }
 }
 
+/* Animação Fim de Jogo (Vermelho) */
 #finalMessage {
     font-family: 'Bungee', cursive; 
     color: #fff; 
@@ -402,27 +508,28 @@ h4 { /* Pergunta */
     font-weight: 700;
     margin-bottom: 20px;
     opacity: 1; 
-    animation: neon-glow-purple 1.5s ease-in-out infinite alternate; 
+    animation: neon-glow-red 1.5s ease-in-out infinite alternate; 
+    z-index: 4; /* Acima do overlay */
 }
 
-@keyframes neon-glow-purple {
+@keyframes neon-glow-red {
     0% {
         text-shadow: 
             0 0 5px rgba(255, 255, 255, 0.5), 
-            0 0 10px rgba(204, 51, 255, 0.5), 
-            0 0 20px rgba(204, 51, 255, 0.5); 
+            0 0 10px rgba(255, 0, 0, 0.5), 
+            0 0 20px rgba(255, 0, 0, 0.5); 
     }
     50% {
         text-shadow: 
             0 0 10px rgba(255, 255, 255, 0.7), 
-            0 0 20px rgba(204, 51, 255, 0.7), 
-            0 0 30px rgba(204, 51, 255, 0.7), 
-            0 0 45px rgba(204, 51, 255, 0.5); 
+            0 0 20px rgba(255, 0, 0, 0.7), 
+            0 0 30px rgba(255, 0, 0, 0.7), 
+            0 0 45px rgba(255, 0, 0, 0.5); 
     }
     100% {
         text-shadow: 
             0 0 5px rgba(255, 255, 255, 0.5), 
-            0 0 10px rgba(204, 51, 255, 0.5), 
-            0 0 20px rgba(204, 51, 255, 0.5); 
+            0 0 10px rgba(255, 0, 0, 0.5), 
+            0 0 20px rgba(255, 0, 0, 0.5); 
     }
 }
