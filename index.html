@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Missões Apollo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" loop></audio>
+    <audio id="sfxCorrect" src="audio/correto.mp3"></audio>
+    <audio id="sfxIncorrect" src="audio/errado.mp3"></audio>
+
+    <div class="stars"></div> 
+
+    <div id="start-screen">
+        <h1 class="start-title">QUIZ: MISSÕES APOLLO</h1>
+        <p class="start-text">Pressione Iniciar para começar a sua jornada espacial.</p>
+        <button id="startButton" class="btn-restart">INICIAR</button>
+    </div>
+
+    <div class="quiz-container container d-none" id="quizContainer">
+        <h1 id="mainTitle">
+            <div id="animatedTitle" style="display: inline;"></div>
+        </h1>
+        
+        <div class="progress mb-3">
+            <div class="progress-bar" role="progressbar" id="progressBar"></div>
+        </div>
+        
+        <div id="quiz-content">
+            <div id="quiz">
+                <h4 id="questionText"></h4>
+                <div id="answerButtons" class="d-grid gap-2">
+                    </div>
+                <button class="btn-confirm mt-auto" id="confirmButton" disabled>CONFIRMAR</button>
+            </div>
+
+            <div id="result" class="d-none">
+                <h3 id="finalMessage"></h3>
+                <p id="resultText"></p>
+                <button class="btn-restart" id="restartButton">JOGAR NOVAMENTE</button>
+            </div>
+        </div>
+        <a id="emblem-link" href="https://www.youtube.com/@sistematico" target="_blank">
+            <img id="corner-emblem" src="images/emblema.png" alt="Emblema Apollo"> 
+        </a>
+    </div>
+    
+    <canvas id="fireworks"></canvas>
+    
+    <script src="script.js"></script>
+</body>
+</html>
